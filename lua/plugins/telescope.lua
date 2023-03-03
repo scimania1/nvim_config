@@ -37,13 +37,6 @@ return {
         end,
         desc = "Search Help Tags",
       },
-      {
-        "<leader>sd",
-        function()
-          require("telescope.builtin").diagnostics()
-        end,
-        desc = "Search Diagnostics",
-      },
     },
     opts = {
       defaults = {
