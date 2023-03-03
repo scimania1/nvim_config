@@ -48,6 +48,9 @@ return {
   {
     'lewis6991/gitsigns.nvim',
     event = { "BufReadPre", "BufNewFile" },
+    config = function (_, _)
+      require("gitsigns").setup()
+    end
   },
 	{ "nvim-lua/plenary.nvim", lazy = true },
 	{ "nvim-tree/nvim-web-devicons", lazy = true },
