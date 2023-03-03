@@ -45,6 +45,10 @@ return {
       { "[[", desc = "Prev Reference" },
     },
   },
+  {
+    'lewis6991/gitsigns.nvim',
+    event = { "BufReadPre", "BufNewFile" },
+  },
 	{ "nvim-lua/plenary.nvim", lazy = true },
 	{ "nvim-tree/nvim-web-devicons", lazy = true },
 }
