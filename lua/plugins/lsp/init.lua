@@ -112,16 +112,16 @@ return {
 			vim.diagnostic.config(opts.diagnostics)
 		end,
 	},
-	-- {
-	-- 	"folke/neodev.nvim",
-	-- 	event = "VeryLazy",
-	-- 	opts = {
-	-- 		debug = true,
-	-- 		experimental = {
-	-- 			pathStrict = true,
-	-- 		},
-	-- 	},
-	-- },
+	{
+		"folke/neodev.nvim",
+		event = "VeryLazy",
+		opts = {
+			debug = true,
+			experimental = {
+				pathStrict = true,
+			},
+		},
+	},
 	{
 		"folke/trouble.nvim",
     cmd = "Trouble",
