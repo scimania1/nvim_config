@@ -16,6 +16,13 @@ return {
 		end,
 	},
   {
+    'numToStr/Comment.nvim',
+		event = { "BufReadPre", "BufNewFile" },
+    config = function()
+        require('Comment').setup()
+    end
+  },
+  {
     "RRethy/vim-illuminate",
     event = { "BufReadPost", "BufNewFile" },
     opts = { delay = 200 },
