@@ -62,7 +62,7 @@ return {
           { name = "luasnip" },
           -- { name = "buffer" },
           { name = "path" },
-          { name = "cmdline" },
+          -- { name = "cmdline" },
         }),
         formatting = {
           format = lspkind.cmp_format(),
