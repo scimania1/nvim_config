@@ -1,5 +1,6 @@
 local options = {
 	-- guicursor = "",
+  guifont = "FiraCode Nerd Font:h11",
 	smartcase = true,
 	shiftwidth = 2,
 	breakindent = true,

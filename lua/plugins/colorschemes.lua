@@ -6,9 +6,9 @@ return {
   {
     "folke/tokyonight.nvim",
     lazy = true,
-    opts = { style = moon },
+    opts = { style = "moon" },
   },
-  { 
+  {
     "catppuccin/nvim", 
     name = "catppuccin",
     lazy = true,
