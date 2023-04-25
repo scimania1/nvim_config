@@ -34,6 +34,18 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		opts = {
 			options = {
+				indicator = {
+					icon = "▎", -- this should be omitted if indicator style is not 'icon'
+					style = "icon",
+				},
+				color_icons = true,
+				diagnostics = "nvim_lsp",
+				seperator_style = "slant",
+				hover = {
+					enabled = true,
+					delay = 200,
+					reveal = { "close" },
+				},
 				offsets = {
 					{
 						filetype = "neo-tree",
@@ -42,6 +54,16 @@ return {
 						text_align = "left",
 					},
 				},
+			},
+		},
+	},
+	{
+		"SmiteshP/nvim-navic",
+		dependencies = { "neovim/nvim-lspconfig" },
+		event = { "BufReadPost", "BufNewFile" },
+		opts = {
+			lsp = {
+				auto_attach = true,
 			},
 		},
 	},
@@ -75,31 +97,31 @@ return {
 			require("mini.indentscope").setup(opts)
 		end,
 	},
-  {
-    "rcarriga/nvim-notify",
-    keys = {
-      {
-        "<leader>un",
-        function()
-          require("notify").dismiss({ silent = true, pending = true })
-        end,
-        desc = "Delete all Notifications",
-      },
-    },
-    opts = {
-      timeout = 3000,
-      max_height = function()
-        return math.floor(vim.o.lines * 0.75)
-      end,
-      max_width = function()
-        return math.floor(vim.o.columns * 0.75)
-      end,
-    },
-  },
+	{
+		"rcarriga/nvim-notify",
+		keys = {
+			{
+				"<leader>un",
+				function()
+					require("notify").dismiss({ silent = true, pending = true })
+				end,
+				desc = "Delete all Notifications",
+			},
+		},
+		opts = {
+			timeout = 3000,
+			max_height = function()
+				return math.floor(vim.o.lines * 0.75)
+			end,
+			max_width = function()
+				return math.floor(vim.o.columns * 0.75)
+			end,
+		},
+	},
 	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
-    dependencies = { "rcarriga/nvim-notify" };
+		dependencies = { "rcarriga/nvim-notify" },
 		opts = {
 			lsp = {
 				override = {

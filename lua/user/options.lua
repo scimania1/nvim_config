@@ -2,6 +2,7 @@ local options = {
 	-- guicursor = "",
   guifont = "FiraCode Nerd Font:h11",
 	smartcase = true,
+  swapfile = false,
 	shiftwidth = 2,
 	breakindent = true,
 	completeopt = { "menuone", "noselect", "noinsert" },

@@ -15,11 +15,27 @@ return {
 			require("mini.surround").setup(opts)
 		end,
 	},
+	{ "JoosepAlviste/nvim-ts-context-commentstring", lazy = true },
 	{
-		"numToStr/Comment.nvim",
+		"echasnovski/mini.comment",
+		event = "VeryLazy",
+		opts = {
+			hooks = {
+				pre = function()
+					require("ts_context_commentstring.internal").update_commentstring({})
+				end,
+			},
+		},
+		config = function(_, opts)
+			require("mini.comment").setup(opts)
+		end,
+	},
+	{
+		"folke/todo-comments.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
 		event = { "BufReadPre", "BufNewFile" },
-		config = function()
-			require("Comment").setup()
+		config = function(_, _)
+			require("todo-comments").setup()
 		end,
 	},
 	{
@@ -64,6 +80,16 @@ return {
 		config = function(_, _)
 			require("gitsigns").setup()
 		end,
+	},
+	{
+		"uga-rosa/ccc.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+		opts = {
+			highlighter = {
+				auto_enable = true,
+				lsp = true,
+			},
+		},
 	},
 	{ "nvim-lua/plenary.nvim", lazy = true },
 	{ "nvim-tree/nvim-web-devicons", lazy = true },

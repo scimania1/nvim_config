@@ -16,7 +16,7 @@ vim.keymap.set("v", "<leader>d", '"_d')
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<space>", "<nop>")
 vim.keymap.set("n", "<leader>f", function()
-	vim.lsp.buf.format()
+	vim.lsp.buf.format({ timeout_ms = 2000 })
 end)
 
 -- vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)

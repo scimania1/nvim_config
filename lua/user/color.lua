@@ -1,3 +1,2 @@
-local colorscheme = "catppuccin"
-require(colorscheme).load()
-vim.cmd("colorscheme " .. colorscheme)
+-- local colorscheme = "tokyonight"
+-- require(colorscheme).load()
