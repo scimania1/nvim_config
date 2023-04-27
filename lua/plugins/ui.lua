@@ -64,8 +64,13 @@ return {
 		opts = {
 			lsp = {
 				auto_attach = true,
+				preference = { "rust_analyzer", "null-ls" },
 			},
+			highlight = true,
 		},
+		config = function(_, opts)
+			require("nvim-navic").setup(opts)
+		end,
 	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
