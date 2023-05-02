@@ -10,6 +10,18 @@ return {
 			"MunifTanjim/nui.nvim",
 			"s1n7ax/nvim-window-picker",
 		},
+		deactivate = function()
+			vim.cmd([[Neotree close]])
+		end,
+		init = function()
+			vim.g.neo_tree_remove_legacy_commands = 1
+			if vim.fn.argc() == 1 then
+				local stat = vim.loop.fs_stat(vim.fn.argv(0))
+				if stat and stat.type == "directory" then
+					require("neo-tree")
+				end
+			end
+		end,
 		keys = {
 			{ "<leader>pv", "<cmd>Neotree reveal<cr>", desc = "open Neotree" },
 		},

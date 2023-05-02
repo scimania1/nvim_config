@@ -1,7 +1,7 @@
 return {
 	{
 		"rebelot/kanagawa.nvim",
-		lazy = false,
+		lazy = true,
 		opts = {
 			dimInactive = true,
 		},
@@ -12,7 +12,7 @@ return {
 	{
 		"folke/tokyonight.nvim",
 		lazy = true,
-		opts = { style = "moon" },
+		opts = { style = "night" },
 		config = function(_, opts)
 			require("tokyonight").setup(opts)
 			vim.cmd("colorscheme tokyonight")
@@ -21,7 +21,7 @@ return {
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
-		lazy = true,
+		lazy = false,
 		config = function(_, _)
 			require("catppuccin").load()
 		end,
@@ -31,7 +31,7 @@ return {
 		name = "rose-pine",
 		lazy = true,
 		opts = {
-			disable_italics = true,
+			-- disable_italics = true,
 		},
 		config = function(_, opts)
 			require("rose-pine").setup(opts)

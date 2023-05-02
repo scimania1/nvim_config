@@ -1,12 +1,12 @@
 local options = {
-	-- guicursor = "",
-  guifont = "FiraCode Nerd Font:h11",
+	guicursor = "",
+	guifont = "FiraCode Nerd Font:h11",
 	smartcase = true,
-  swapfile = false,
+	swapfile = false,
 	shiftwidth = 2,
 	breakindent = true,
 	completeopt = { "menuone", "noselect", "noinsert" },
-  wildmenu = true,
+	wildmenu = true,
 	tabstop = 2,
 	softtabstop = 2,
 	expandtab = true,
@@ -33,7 +33,7 @@ local options = {
 
 vim.opt.shortmess:append("c")
 for key, value in pairs(options) do
-  vim.opt[key] = value
+	vim.opt[key] = value
 end
 
 vim.opt.listchars:append("eol:↴")

@@ -106,7 +106,26 @@ return {
 						settings = opts.servers[server_name],
 					})
 				end,
+				["clangd"] = function()
+					local clangd_capabilities = capabilities
+					capabilities.offsetEncoding = { "utf-16" }
+					require("lspconfig").clangd.setup({
+						capabilities = clangd_capabilities,
+					})
+				end,
 			})
+
+			-- mason_lspconfig.setup_handlers({
+			-- 	function(_)
+			-- 		local clangd_capabilities = capabilities
+			-- 		clangd_capabilities.offsetEncoding = { "utf-16" }
+			-- 		require("lspconfig")["clangd"].setup({
+			-- 			capabilities = clangd_capabilities,
+			-- 			on_attach = on_attach,
+			-- 			settings = opts.servers["clangd"],
+			-- 		})
+			-- 	end,
+			-- })
 
 			-- icons for diagnostics
 			vim.diagnostic.config(opts.diagnostics)
