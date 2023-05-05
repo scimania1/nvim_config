@@ -1,6 +1,6 @@
 local options = {
 	guicursor = "",
-	guifont = "FiraCode Nerd Font:h11",
+	guifont = "Iosevka Nerd Font:h12",
 	smartcase = true,
 	swapfile = false,
 	shiftwidth = 2,
