@@ -22,8 +22,12 @@ return {
 		"catppuccin/nvim",
 		name = "catppuccin",
 		lazy = false,
-		config = function(_, _)
-			require("catppuccin").load()
+		opts = {
+			no_italic = true,
+		},
+		config = function(_, opts)
+			require("catppuccin").setup(opts)
+			vim.cmd("colorscheme catppuccin")
 		end,
 	},
 	{
@@ -31,11 +35,19 @@ return {
 		name = "rose-pine",
 		lazy = true,
 		opts = {
-			-- disable_italics = true,
+			disable_italics = true,
 		},
 		config = function(_, opts)
 			require("rose-pine").setup(opts)
 			vim.cmd("colorscheme rose-pine")
+		end,
+	},
+	{
+		"loctvl842/monokai-pro.nvim",
+		lazy = true,
+		config = function(_, _)
+			require("monokai-pro").setup()
+			vim.cmd([[colorscheme monokai-pro]])
 		end,
 	},
 }
