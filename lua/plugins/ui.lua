@@ -92,6 +92,17 @@ return {
 		end,
 	},
 	{
+		"SmiteshP/nvim-navbuddy",
+		event = { "BufReadPost", "BufNewFile" },
+		dependencies = {
+			"SmiteshP/nvim-navic",
+			"MunifTanjim/nui.nvim",
+		},
+		opts = {
+			lsp = { auto_attach = true },
+		},
+	},
+	{
 		"lukas-reineke/indent-blankline.nvim",
 		event = { "BufReadPost", "BufNewFile" },
 		opts = {
