@@ -11,8 +11,8 @@ return {
 	},
 	{
 		"folke/tokyonight.nvim",
-		lazy = true,
-		opts = { style = "night" },
+		lazy = false,
+		opts = { style = "moon" },
 		config = function(_, opts)
 			require("tokyonight").setup(opts)
 			vim.cmd("colorscheme tokyonight")
@@ -21,7 +21,7 @@ return {
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
-		lazy = false,
+		lazy = true,
 		opts = {
 			no_italic = true,
 		},
@@ -43,11 +43,10 @@ return {
 		end,
 	},
 	{
-		"loctvl842/monokai-pro.nvim",
+		"ribru17/bamboo.nvim",
 		lazy = true,
 		config = function(_, _)
-			require("monokai-pro").setup()
-			vim.cmd([[colorscheme monokai-pro]])
+			require("bamboo").load()
 		end,
 	},
 }

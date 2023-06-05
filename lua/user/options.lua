@@ -29,6 +29,7 @@ local options = {
 	timeoutlen = 800,
 	updatetime = 500,
 	list = true,
+	winbar = " %{%v:lua.vim.fn.expand('%F')%}  %{%v:lua.require'nvim-navic'.get_location()%}",
 }
 
 vim.opt.shortmess:append("c")

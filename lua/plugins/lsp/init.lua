@@ -149,4 +149,11 @@ return {
 			{ "<leader>sd", "<cmd>TroubleToggle<cr>", desc = "shows diagnostics in trouble.nvim" },
 		},
 	},
+	-- {
+	-- 	"simrat39/rust-tools.nvim",
+	-- 	event = { "BufReadPre", "BufNewFile" },
+	-- 	config = function(_, _)
+	-- 		require("rust-tools").inlay_hints.enable()
+	-- 	end,
+	-- },
 }
