@@ -12,7 +12,18 @@ return {
 	{
 		"folke/tokyonight.nvim",
 		lazy = false,
-		opts = { style = "moon" },
+		opts = {
+			style = "moon",
+			styles = {
+				comments = { italic = true },
+				keywords = { italic = false },
+				functions = {},
+				variables = {},
+				-- Background styles. Can be "dark", "transparent" or "normal"
+				sidebars = "dark", -- style for sidebars, see below
+				floats = "dark", -- style for floating windows
+			},
+		},
 		config = function(_, opts)
 			require("tokyonight").setup(opts)
 			vim.cmd("colorscheme tokyonight")
