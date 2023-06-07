@@ -58,7 +58,7 @@ return {
 				},
 				color_icons = true,
 				diagnostics = "nvim_lsp",
-				seperator_style = "slant",
+				separator_style = "slope",
 				hover = {
 					enabled = true,
 					delay = 200,
