@@ -11,7 +11,7 @@ return {
 	},
 	{
 		"folke/tokyonight.nvim",
-		lazy = false,
+		lazy = true,
 		opts = {
 			style = "moon",
 			styles = {
@@ -58,6 +58,14 @@ return {
 		lazy = true,
 		config = function(_, _)
 			require("bamboo").load()
+		end,
+	},
+	{
+		"EdenEast/nightfox.nvim",
+		lazy = false,
+		config = function(_, _)
+			require("nightfox").setup()
+			vim.cmd("colorscheme nightfox")
 		end,
 	},
 }
