@@ -6,6 +6,7 @@ return {
 			dimInactive = true,
 		},
 		config = function(_, opts)
+			require("kanagawa").setup(opts)
 			require("kanagawa").load()
 		end,
 	},
@@ -44,7 +45,7 @@ return {
 	{
 		"rose-pine/neovim",
 		name = "rose-pine",
-		lazy = true,
+		lazy = false,
 		opts = {
 			disable_italics = true,
 		},
@@ -62,10 +63,21 @@ return {
 	},
 	{
 		"EdenEast/nightfox.nvim",
-		lazy = false,
+		lazy = true,
 		config = function(_, _)
 			require("nightfox").setup()
 			vim.cmd("colorscheme nightfox")
+		end,
+	},
+	{
+		"navarasu/onedark.nvim",
+		lazy = true,
+		opts = {
+			style = "darker",
+		},
+		config = function(_, _)
+			-- require("onedark").setup(opts)
+			require("onedark").load()
 		end,
 	},
 }

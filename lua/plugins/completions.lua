@@ -90,6 +90,10 @@ return {
 				view = {
 					entries = { name = "custom", selection_order = "near_cursor" },
 				},
+				window = {
+					completion = cmp.config.window.bordered(),
+					documentation = cmp.config.window.bordered(),
+				},
 			}
 		end,
 		--    config = function(_, opts)
