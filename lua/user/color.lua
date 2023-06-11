@@ -1,2 +1,0 @@
--- local colorscheme = "tokyonight"
--- require(colorscheme).load()

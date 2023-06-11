@@ -29,6 +29,7 @@ local options = {
 	timeoutlen = 800,
 	updatetime = 500,
 	list = true,
+	fillchars = { eob = " " },
 	-- winbar = " %{%v:lua.vim.fn.expand('%F')%}  %{%v:lua.require'nvim-navic'.get_location()%}",
 	winbar = "%{%v:lua.require'nvim-navic'.get_location()%}",
 }
