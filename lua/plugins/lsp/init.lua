@@ -14,12 +14,12 @@ return {
 				update_in_insert = false,
 				severity_sort = false,
 				-- float = {
-				--   focusable = true,
-				--   style = "minimal",
-				--   border = "rounded",
-				--   source = "always",
-				--   header = "",
-				--   prefix = "",
+				-- 	focusable = true,
+				-- 	style = "minimal",
+				-- 	border = "rounded",
+				-- 	source = "always",
+				-- 	header = "",
+				-- 	prefix = "",
 				-- },
 			},
 			servers = {
@@ -35,7 +35,7 @@ return {
 				},
 			},
 		},
-		config = function(plugin, opts)
+		config = function(_, opts)
 			local mason = require("mason")
 			mason.setup({
 				ui = {
@@ -123,6 +123,21 @@ return {
 						on_attach = on_attach,
 						settings = opts.servers[server_name],
 					})
+					if server_name == "rust_analyzer" then
+						local ok_rt, rust_tools = pcall(require, "rust-tools")
+						if not ok_rt then
+							print("Failed to load rust tools, will set up `rust_analyzer` without `rust-tools`.")
+							require("lspconfig")[server_name].setup({
+								capabilities = capabilities,
+								on_attach = on_attach,
+								settings = opts.servers[server_name],
+							})
+						else
+							rust_tools.setup({
+								server = { on_attach = on_attach },
+							})
+						end
+					end
 				end,
 				["clangd"] = function()
 					local clangd_capabilities = capabilities
@@ -155,11 +170,9 @@ return {
 			{ "<leader>sd", "<cmd>TroubleToggle<cr>", desc = "shows diagnostics in trouble.nvim" },
 		},
 	},
-	-- {
-	-- 	"simrat39/rust-tools.nvim",
-	-- 	event = { "BufReadPre", "BufNewFile" },
-	-- 	config = function(_, _)
-	-- 		require("rust-tools").inlay_hints.enable()
-	-- 	end,
-	-- },
+	{
+		"simrat39/rust-tools.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+		dependencies = { "nvim-lspconfig" },
+	},
 }
