@@ -52,6 +52,18 @@ return {
 			capabilities.textDocument.completion.completionItem.snippetSupport = true
 			capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
+			local lsp_formatting = function(bufnr)
+				vim.lsp.buf.format({
+					filter = function(client)
+						return client.name == "null-ls"
+					end,
+					bufnr = bufnr,
+				})
+			end
+
+			-- if you want to set up formatting on save, you can use this as a callback
+			local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
 			local on_attach = function(client, bufnr)
 				local nmap = function(keys, func, desc)
 					if desc then
@@ -86,10 +98,16 @@ return {
 					vim.diagnostic.open_float()
 				end, "Open Float")
 
-				-- Create a command `:Format` local to the LSP buffer
-				vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
-					vim.lsp.buf.format()
-				end, { desc = "Format current buffer with LSP" })
+				if client.supports_method("textDocument/formatting") then
+					vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+					vim.api.nvim_create_autocmd("BufWritePre", {
+						group = augroup,
+						buffer = bufnr,
+						callback = function()
+							lsp_formatting(bufnr)
+						end,
+					})
+				end
 			end
 
 			local mason_lspconfig = require("mason-lspconfig")
@@ -114,18 +132,6 @@ return {
 					})
 				end,
 			})
-
-			-- mason_lspconfig.setup_handlers({
-			-- 	function(_)
-			-- 		local clangd_capabilities = capabilities
-			-- 		clangd_capabilities.offsetEncoding = { "utf-16" }
-			-- 		require("lspconfig")["clangd"].setup({
-			-- 			capabilities = clangd_capabilities,
-			-- 			on_attach = on_attach,
-			-- 			settings = opts.servers["clangd"],
-			-- 		})
-			-- 	end,
-			-- })
 
 			-- icons for diagnostics
 			vim.diagnostic.config(opts.diagnostics)

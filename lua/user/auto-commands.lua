@@ -15,12 +15,3 @@ vim.api.nvim_create_autocmd("BufEnter", {
 	group = remove_format,
 	pattern = "*",
 })
-
-local format_document = vim.api.nvim_create_augroup("Format Document", { clear = true })
-vim.api.nvim_create_autocmd("BufWritePre", {
-	callback = function()
-		vim.lsp.buf.format()
-	end,
-	group = format_document,
-	pattern = "*",
-})
