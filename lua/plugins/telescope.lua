@@ -51,6 +51,13 @@ return {
 				end,
 				desc = "Search buffers",
 			},
+			{
+				"<leader>ps",
+				function()
+					require("telescope.builtin").current_buffer_fuzzy_find()
+				end,
+				desc = "Seach String in Current buffer",
+			},
 		},
 		opts = {
 			defaults = {
