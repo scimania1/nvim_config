@@ -80,6 +80,7 @@ return {
 					-- { name = "cmdline" },
 				}),
 				formatting = {
+					-- format = lspkind.cmp_format({ with_text = false , max_width = 50 }),
 					format = lspkind.cmp_format(),
 				},
 				experimental = {

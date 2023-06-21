@@ -5,6 +5,7 @@ local options = {
 	swapfile = false,
 	shiftwidth = 4,
 	breakindent = true,
+	smartindent = true,
 	completeopt = { "menuone", "noselect", "noinsert" },
 	wildmenu = true,
 	tabstop = 4,
@@ -31,7 +32,7 @@ local options = {
 	list = true,
 	fillchars = { eob = " " },
 	-- winbar = " %{%v:lua.vim.fn.expand('%F')%}  %{%v:lua.require'nvim-navic'.get_location()%}",
-	winbar = "%{%v:lua.require'nvim-navic'.get_location()%}",
+	-- winbar = "%{%v:lua.require'nvim-navic'.get_location()%}",
 }
 
 vim.opt.shortmess:append("c")
@@ -39,6 +40,6 @@ for key, value in pairs(options) do
 	vim.opt[key] = value
 end
 
-vim.opt.listchars:append("eol:↴")
+-- vim.opt.listchars:append("eol:↴")
 
 vim.g.mapleader = " "

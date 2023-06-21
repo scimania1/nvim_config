@@ -33,9 +33,9 @@ return {
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
-		lazy = true,
+		lazy = false,
 		opts = {
-			no_italic = true,
+			no_italic = false,
 		},
 		config = function(_, opts)
 			require("catppuccin").setup(opts)
@@ -45,7 +45,7 @@ return {
 	{
 		"rose-pine/neovim",
 		name = "rose-pine",
-		lazy = false,
+		lazy = true,
 		opts = {
 			disable_italics = true,
 		},
@@ -64,8 +64,13 @@ return {
 	{
 		"EdenEast/nightfox.nvim",
 		lazy = true,
-		config = function(_, _)
-			require("nightfox").setup()
+		opts = {
+			options = {
+				transparent = false,
+			},
+		},
+		config = function(_, opts)
+			require("nightfox").setup(opts)
 			vim.cmd("colorscheme nightfox")
 		end,
 	},

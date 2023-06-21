@@ -135,6 +135,12 @@ return {
 						else
 							rust_tools.setup({
 								server = { on_attach = on_attach },
+								tools = {
+									inlay_hints = {
+										parameter_hints_prefix = "  <- ",
+										other_hints_prefix = "  => ",
+									},
+								},
 							})
 						end
 					end
