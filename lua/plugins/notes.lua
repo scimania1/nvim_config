@@ -12,8 +12,7 @@ return {
 					["core.dirman"] = { -- Manages Neorg workspaces
 						config = {
 							workspaces = {
-								home = "~/notes/home",
-								work = "~/notes/work",
+								notes = "~/notes",
 							},
 						},
 					},
